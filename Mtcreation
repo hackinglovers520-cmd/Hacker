@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tejas's Info Pages</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .container {
+      font-size: 1.8rem;
+      animation: fade 1s ease-in-out;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .top-left, .top-right {
+      position: absolute;
+      top: 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .top-left {
+      left: 20px;
+      color: #FF6EC7; /* Pink-purple gradient */
+    }
+
+    .top-right {
+      right: 20px;
+      color: #00E5FF; /* Neon Blue */
+    }
+  </style>
+</head>
+<body>
+  <div class="top-left">M_T_creation</div>
+  <div class="top-right">M_T</div>
+
+  <div class="container" id="pageText">Loading...</div>
+
+  <script>
+    const pages = [
+      " welcome to my world 🌎 this is for you.....!!! see more 👀 ",
+      " 🫵you know that ,.. your most important person in my life 🫂 ",
+      " i like your smile 🙂....!! ",
+      " & your heart it's rare and pure💖  ",
+      "I love everything about you... seriously💘 "
+    ];
+
+    let currentPage = 0;
+    const container = document.getElementById("pageText");
+
+    function showPage(index) {
+      container.innerHTML = pages[index];
+      container.style.animation = 'none';
+      void container.offsetWidth;
+      container.style.animation = null;
+    }
+
+    showPage(currentPage);
+
+    setInterval(() => {
+      currentPage = (currentPage + 1) % pages.length;
+      showPage(currentPage);
+    }, 3000);
+  </script>
+</body>
+</html>
